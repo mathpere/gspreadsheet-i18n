@@ -52,7 +52,7 @@ def endsWith = { code, msg ->
     System.exit(code)
 }
 
-def cliBuilder = new CliBuilder(usage: "gspreadsheet-i18n.groovy")
+def cliBuilder = new CliBuilder(usage: "groovy gspreadsheet-i18n.groovy")
 
 // available options
 cliBuilder.k(longOpt: 'spreadsheetKey', args: 1, argName: 'Spreadsheet key', required: true, 'The spreadsheet key: https://docs.google.com/spreadsheet/ccc?key={KEY}')

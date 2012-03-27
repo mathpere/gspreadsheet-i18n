@@ -25,7 +25,43 @@ groovy gspreadsheet-i18n.groovy
 
 ## Sample
 
+https://docs.google.com/spreadsheet/ccc?key=ABCDEFG1234567
 
+```shell
+
+# list working directory content:
+$ ls -l ~/Sources/myApp/grails-app/i18n/
+messages_cs_CZ.properties
+messages_da.properties
+messages_de.properties
+messages_en.properties
+messages_es.properties
+messages_fr.properties
+messages_it.properties
+messages_ja.properties
+messages_nl.properties
+messages_pt_BR.properties
+messages_pt_PT.properties
+messages_ru.properties
+messages_sv.properties
+messages_th.properties
+messages_zh_CN.properties
+
+
+# synchronize TO spreadsheet:
+groovy gspreadsheet-i18n.groovy -k ABCDEFG1234567 -s to -d ~/Sources/myApp/grails-app/i18n/
+
+
+# synchronize FROM spreadsheet:
+groovy gspreadsheet-i18n.groovy -k ABCDEFG1234567 -s from -d ~/Sources/myApp/grails-app/i18n/
+
+
+# force property file base name:
+groovy gspreadsheet-i18n.groovy -k ABCDEFG1234567 -s from -d ~/Sources/myApp/grails-app/i18n/ -n messages
+
+
+
+```
 
 ## Bug tracker
 

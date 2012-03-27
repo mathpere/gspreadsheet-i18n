@@ -1,6 +1,6 @@
 # GSpreadsheet-i18n
 
-This script aims to synchronize i18n properties with Google Spreadsheet.
+This script aims to synchronize i18n properties files with Google Spreadsheets.
 
 ## Usage
 

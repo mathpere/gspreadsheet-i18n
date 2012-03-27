@@ -181,12 +181,11 @@ switch ( sync ) {
             // Submit the update
             Link batchLink = cellFeed.getLink(com.google.gdata.data.ILink.Rel.FEED_BATCH, com.google.gdata.data.ILink.Type.ATOM)
 
-            //todo: check the batch status...
             service.setHeader("If-Match", "*")
             CellFeed batchResponse = service.batch(new URL(batchLink.getHref()), batchRequest)
             service.setHeader("If-Match", null)
 
-            // Check the results
+            // Check the batch status
             batchResponse.entries.each { entry ->
 	
                 def batchId = BatchUtils.getBatchId(entry)

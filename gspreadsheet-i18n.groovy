@@ -73,7 +73,7 @@ def defaultLanguage = options.l ?: "en"
 def baseName = options.n ?: "messages"
 def sync = options.s ?: "from"
 
-def filenamePattern = "${baseName}_([a-zA-Z_]+).properties"
+def filenamePattern = "${baseName}.properties|${baseName}_([a-zA-Z_]+).properties"
 
 println ""
 println " - Spreadsheet key:  ${spreadsheetKey} "
@@ -141,7 +141,7 @@ switch ( sync ) {
 
         } as FilenameFilter).each { file ->
 
-            def language = (file.name =~ filenamePattern)[0][1]
+            def language = (file.name =~ filenamePattern)[0][1] ?: defaultLanguage
 
             println "Create worksheet '${language}'..."
 

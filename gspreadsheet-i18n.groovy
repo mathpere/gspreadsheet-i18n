@@ -34,6 +34,21 @@ import com.google.gdata.data.spreadsheet.*
 import com.google.gdata.util.*
 import java.awt.Desktop
 
+public class SortedProperties extends Properties {
+  
+  @SuppressWarnings("unchecked")
+  public synchronized Enumeration keys() {
+     Enumeration keysEnum = super.keys();
+     Vector keyList = new Vector();
+     while(keysEnum.hasMoreElements()){
+       keyList.add(keysEnum.nextElement());
+     }
+     Collections.sort(keyList);
+     return keyList.elements();
+  }
+  
+}
+
 // --------------------------
 // script utils
 // --------------------------
@@ -210,7 +225,7 @@ switch ( sync ) {
 
             def worksheetTitle = worksheet.title.plainText
 
-            def props = new Properties()
+            def props = new SortedProperties()
 
             println "Retrieve cell feed from '${worksheetTitle}'..."
 

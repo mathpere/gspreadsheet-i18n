@@ -236,15 +236,15 @@ switch ( sync ) {
                 props.setProperty(cells.find {it.col == 1}.inputValue, cells.find {it.col == 2}.inputValue)
             }
 
-            def outputs = [new File(workingDirectory, "${baseName}_${worksheetTitle}.properties")]
+            def output
 
             if ( worksheetTitle == defaultLanguage ) {
-                outputs << new File(workingDirectory, "${baseName}.properties")
+                output = new File(workingDirectory, "${baseName}.properties")
+            } else {
+                output = new File(workingDirectory, "${baseName}_${worksheetTitle}.properties")
             }
 
-            outputs.each { output ->
-                props.store(new OutputStreamWriter(new FileOutputStream(output), "UTF-8"), null)
-            }
+            props.store(new OutputStreamWriter(new FileOutputStream(output), "UTF-8"), null)
 
         }
         break
